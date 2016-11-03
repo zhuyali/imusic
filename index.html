@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="music player">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="author" content="Julia" />
+    <title>imusic</title>
+    <link rel="icon" href="./assets/images/Music-icon.png" />
+    <link rel="stylesheet" type="text/css" href="./assets/stylesheet/knobKnob.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/stylesheet/index.css" />
+    <script src="./assets/javascript/jquery.js" ></script>
+    <script src="./assets/javascript/grace.js"></script>
+    <script src="./assets/javascript/knobKnob.jquery.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <div id="imusic-container" class="imusic-container">
+        <div class="imusic-tape-wrapper">
+          <div class="imusic-tape">
+            <div class="imusic-tape-back">
+              <div class="imusic-tape-wheel imusic-tape-wheel-left"><div></div></div>
+              <div class="imusic-tape-wheel imusic-tape-wheel-right"><div></div></div>
+            </div>
+            <div class="imusic-tape-front imusic-tape-side-a">
+              <span>A</span>
+            </div>
+          </div>
+        </div>
+        <ul class="imusic-controls" style="">
+          <li id="play" class="imusic-control-play control">
+            Play<span>▶</span>
+          </li>
+          <li id="pause" class="imusic-control-pause control">
+            Pause<span>❚❚</span>
+          </li>
+          <li id="pre" class="imusic-control-rewind control">
+            Pre<span>◁</span>
+          </li>
+          <li id="next" class="imusic-control-fforward control">
+            Next<span>▷</span>
+          </li>
+          <li id="stop" class="imusic-control-stop control">
+            Stop<span>◼</span>
+          </li>
+        </ul>
+
+        <div style="" class="imusic-volume-wrap">
+          <div class="imusic-volume-control">
+            <div class="imusic-volume-knob">
+            </div>
+          </div>
+        </div>
+      </div><!-- //imusic-container -->
+    </div><!-- //container -->
+    
+    <div id="container"></div>
+    <audio id="audio"><span>HTML5 audio not supported</span></audio>
+    <audio id="soundAudio" src='./assets/sounds/click.mp3'><span>HTML5 audio not supported</span></audio>
+
+    <script id="grace-template" type="template">
+    <div class="list" style="overflow: auto;">
+      <ol>
+        <#each value in $data#>
+          <li class="item" data-path="<#=$value.path#>"><#=$value.name#></li>
+          <#/each#>
+      </ol>
+    </div>
+    </script>
+    <script src="./assets/javascript/index.js"></script>
+  </body>
+</html>
+

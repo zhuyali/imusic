@@ -1,0 +1,30 @@
+{
+  "name": "imusic",
+  "version": "1.0.2",
+  "description": "imusic",
+  "bin": "./bin/imusic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhuyali/imusic.git"
+  },
+  "keywords": [
+    "imusic"
+  ],
+  "author": "zhuyali",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhuyali/imusic/issues"
+  },
+  "homepage": "https://github.com/zhuyali/imusic#readme",
+  "dependencies": {
+    "detect-port": "^1.0.5",
+    "koa": "^1.2.4",
+    "koa-ejs": "^3.0.0",
+    "koa-route": "^2.4.2",
+    "koa-static": "^2.0.0"
+  }
+}

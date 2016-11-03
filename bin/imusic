@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var detectPort = require('detect-port');
+
+var args = process.argv.slice(2);
+
+var pkg = require('../package');
+
+if (args[0] === '-v') {
+  console.log(pkg.version);
+  process.exit(0);
+}
+
+var main = require('..');
+
+detectPort(8080, function(err, port) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  main(port);
+});
