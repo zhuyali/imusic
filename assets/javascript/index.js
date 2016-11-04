@@ -87,6 +87,7 @@
   };
 
   $('.item').live('click', function() {
+    $('#pause').removeClass('imusic-control-pressed');
     var music = {
       path: $(this).data('path'),
       name: $(this).html()
