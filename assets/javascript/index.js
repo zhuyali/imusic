@@ -70,8 +70,14 @@
   };
 
   Audio.prototype.stop = function() {
-    audio.pause();
+    $('#soundAudio')[0].play();
+    $('#pause').addClass('imusic-control-pressed');
+    $('.imusic-tape-wheel-left').removeClass('clockwise');
+    $('.imusic-tape-wheel-right').removeClass('anticlockwise');
+    this.element[0].pause();
+
     this.paused = false;
+    $('#pause').removeClass('imusic-control-pressed'); 
   };
 
   var render = function(data) {
@@ -99,6 +105,7 @@
     setTimeout(function() {
       $(`#${id}`).removeClass('imusic-control-pressed');
     },100);
+    $('#pause').removeClass('imusic-control-pressed');
   }
 
   $('body').delegate('.control', 'click', function(e) {
