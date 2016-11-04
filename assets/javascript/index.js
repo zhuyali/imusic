@@ -183,18 +183,12 @@
     } else {
       console.log('network');
       var url = getQueryString('url');
+      var defaultUrl = 'http://mr1.doubanio.com/678811c82aa655a13a64dcc4d1bea8ac/0/fm/song/p2638812_128k.mp3';
+      musicList.push({
+        name: url ? url.substr(url.lastIndexOf('/') + 1) : '美好事物-房东的猫.mp3',
+        path: url || defaultUrl
+      });
 
-      if (url) {
-        musicList.push({
-          name: url.substr(url.lastIndexOf('/') + 1),
-          path: url
-        });
-      } else {
-        musicList.push({
-          name: '美好事物.mp3',
-          path: 'http://i-music1.oss-cn-shanghai.aliyuncs.com/%E6%88%BF%E4%B8%9C%E7%9A%84%E7%8C%AB%20-%20%E7%BE%8E%E5%A5%BD%E4%BA%8B%E7%89%A9.mp3?Expires=1478249272&OSSAccessKeyId=TMP.AQGtsesBSoxtaP4QcA10GZfsxtyFaoOi0UN-y3FiIBO2h6pNolyf6ALwBC7UADAtAhRjBVS5dNVV-Xx6kW6WbXJ6E0CkiwIVAJeQFPrAJHnn_7nPlcrP8lEAb4ov&Signature=K8m%2BoccAsYfYIRnH3Kr8ZkYUdfg%3D'
-        });
-      }
       render(musicList);
       audio.init('#audio');
       audio.element.on('ended', function() {
