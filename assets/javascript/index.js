@@ -39,7 +39,7 @@
       this.paused = true;
       $('.imusic-tape-wheel-left').removeClass('clockwise');
       $('.imusic-tape-wheel-right').removeClass('anticlockwise');
-      this.element[0].pause();
+      audio.element[0].pause();
     }
   };
 
@@ -116,6 +116,7 @@
         press('play');
         $('#soundAudio')[0].play();
         if(audio.paused) {
+          audio.paused = false;
           $('.imusic-tape-wheel-left').addClass('clockwise');
           $('.imusic-tape-wheel-right').addClass('anticlockwise');
           audio.element[0].play();
@@ -162,7 +163,6 @@
   var localhost = ['localhost', '127.0.0.1'];
   var requestMusic = function() {
     if (!!~localhost.indexOf(document.domain)) {
-      console.log('localhost');
       $.ajax({
         type : 'get',
         url : '/api/get_musics',
@@ -181,7 +181,6 @@
         }
       });
     } else {
-      console.log('network');
       var url = getQueryString('url');
       var defaultUrl = 'http://mr1.doubanio.com/678811c82aa655a13a64dcc4d1bea8ac/0/fm/song/p2638812_128k.mp3';
       musicList.push({
