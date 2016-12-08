@@ -52,44 +52,27 @@
           a = center.y - e.pageY;
           b = center.x - e.pageX;
           deg = Math.atan2(a,b)*rad2deg;
-
-          // we have to make sure that negative
-          // angles are turned into positive:
           if(deg<0){
             deg = 360 + deg;
           }
-
-          // Save the starting position of the drag
           if(startDeg == -1){
             startDeg = deg;
           }
-
-          // Calculating the current rotation
           tmp = Math.floor((deg-startDeg) + rotation);
-
-          // Making sure the current rotation
-          // stays between 0 and 359
           if(tmp < 0){
             tmp = 360 + tmp;
           }
           else if(tmp > 359){
             tmp = tmp % 360;
           }
-
-          // Snapping in the off position:
           if(options.snap && tmp < options.snap){
             tmp = 0;
           }
-
-          // This would suggest we are at an end position;
-          // we need to block further rotation.
           if(Math.abs(tmp - lastDeg) > 180){
             return false;
           }
-
           currentDeg = tmp;
           lastDeg = tmp;
-
           knobTop.css('transform','rotate('+(currentDeg)+'deg)');
           options.turn(currentDeg/360);
         });
@@ -97,11 +80,7 @@
         doc.on('mouseup.rem  touchend.rem',function(){
           knob.off('.rem');
           doc.off('.rem');
-
-          // Saving the current rotation
           rotation = currentDeg;
-
-          // Marking the starting degree as invalid
           startDeg = -1;
         });
 
