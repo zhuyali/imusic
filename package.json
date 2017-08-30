@@ -1,6 +1,6 @@
 {
   "name": "imusic",
-  "version": "1.0.5",
+  "version": "2.0.1",
   "description": "imusic",
   "bin": "./bin/imusic",
   "main": "index.js",
