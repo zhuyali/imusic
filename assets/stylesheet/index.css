@@ -1,24 +1,18 @@
-/* General Demo Style */
+html {
+  height: 100%;
+}
+
 body {
   background: url(../images/bg.png);
-  font-weight: 400;
   font-size: 15px;
   color: #333;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  margin: 0;
+  height: 100%;
+  min-width: 1300px;
 }
 
-a {
-  color: #2886BC;
-  text-decoration: none;
-}
-a:hover {
-  color: #000;
-}
-
-.container {
-  width: 100%;
-  position: relative;
+ol {
+  margin: 0;
 }
 
 #audio {
@@ -32,6 +26,7 @@ a:hover {
 .anticlockwise {
   animation:anticlockwise 3s linear infinite;
 }
+
 @keyframes clockwise {
   0%  {
     transform:rotate(0deg);
@@ -49,15 +44,17 @@ a:hover {
   }
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-width: 725px;
+  text-align: center;
+}
+
 .list {
-  position: fixed;
-  top: 15%;
-  right: 9%;
-  counter-reset: li; /* 初始化计数器 */
-  list-style: none; /* 移除默认的计数 */
-  margin-left: 65%;
-  padding: 0;
-  height: 456px;
+  counter-reset: li;
   text-shadow: 0 1px 0 rgba(255,255,255,.5);
 }
 
@@ -68,11 +65,7 @@ a:hover {
   margin: .5em 0;
   background: #ddd;
   color: #444;
-  text-decoration: none;
   border-radius: 1em;
-  transition: all .3s ease-out;
-  text-align: left;
-  cursor: default;
 }
 
 .item:hover {
@@ -101,122 +94,32 @@ a:hover {
   transition: all .3s ease-out;
 }
 
-/* Main container */
-.imusic-container {
-  text-align: center;
-  height: 500px;
-  margin-bottom: 50px;
-  position: fixed;
-  left: 15%;
-  top: 10%;
-}
-
-/* Tape elements */
-.imusic-tape-wrapper {
-  -webkit-perspective: 800px;
-  -moz-perspective: 800px;
-  -o-perspective: 800px;
-  -ms-perspective: 800px;
-  perspective: 800px;
-}
-.imusic-tape {
-  width: 586px;
-  height: 379px;
-  margin: 30px auto 0;
-  position: relative;
-  -webkit-transition: all .4s ease-in-out;
-  -moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -ms-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
-}
-.imusic-tape-back {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background: transparent url(../images/cs_back.png) no-repeat center center;
-}
-.imusic-tape-wheel {
-  width: 125px;
-  height: 125px;
-  position: absolute;
-  top: 110px;
-  background: transparent;
-  border-radius: 50%;
-}
-.imusic-tape-wheel-left {
-  left: 109px;
-  box-shadow: 0 0 0 70px #000;
-}
-.imusic-tape-wheel-right {
-  right: 113px;
-}
-.imusic-tape-wheel div {
-  width: 100%;
-  height: 100%;
-  background: transparent url(../images/cs_wheel.png) no-repeat center center;
-}
-.imusic-tape-front {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background: transparent url(../images/cs_front.png) no-repeat center center;
-  top: 0px;
-  left: 0px;
-}
-
-.imusic-tape-front span {
-  color: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  top: 83px;
-  left: 67px;
-  font-family: Arial;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-/* Controls list */
-ul.imusic-controls {
-  list-style: none;
-  padding: 0;
+.imusic-controls {
+  display: inline-block;
   width: 540px;
-  position: absolute;
-  bottom: 18px;
-  left: 43%;
-  margin: 0 0 0 -170px;
-  background: -moz-linear-gradient(top, rgba(170,170,170,0.35) 0%, rgba(255,255,255,0.44) 50%, rgba(255,255,255,0.53) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(170,170,170,0.35)), color-stop(50%,rgba(255,255,255,0.44)), color-stop(100%,rgba(255,255,255,0.53)));
-  background: -webkit-linear-gradient(top, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
-  background: -o-linear-gradient(top, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
-  background: -ms-linear-gradient(top, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
   background: linear-gradient(to bottom, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59aaaaaa', endColorstr='#87ffffff',GradientType=0 );
   border: 1px solid rgba(0,0,0,0.1);
   border-bottom-color: rgba(255,255,255,0.6);
   padding: 8px;
   height: 54px;
+  vertical-align: top;
+  margin: 20px;
   box-shadow:
   inset 0 1px 0px rgba(0,0,0,0.05),
   0 1px 0 rgba(255,255,255,0.8),
   0 -1px 0 rgba(255,255,255,0.4),
   inset 0 2px 19px rgba(0,0,0,0.05),
   0 2px 1px rgba(0,0,0,0.06);
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
   border-radius: 12px;
 }
 
-/* Controls list items */
-ul.imusic-controls li {
+.imusic-controls li {
   display: block;
   float: left;
-  width: 80px;
   height: 30px;
+  width: 80px;
   line-height: 55px;
-  text-align: left;
   padding: 10px;
-  margin: 0;
   cursor: pointer;
   background: #ddd url(../images/metal.jpg) no-repeat center top;
   box-shadow:
@@ -225,15 +128,9 @@ ul.imusic-controls li {
   inset 0 -6px 5px rgba(0,0,0,0.1),
   0 6px 7px rgba(0,0,0,0.3),
   0 4px 1px rgba(0,0,0,0.5);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
-ul.imusic-controls li:first-child {
+.imusic-controls li:first-child {
   border-radius: 8px 0 0 8px;
 }
 
@@ -245,18 +142,9 @@ ul.imusic-controls li.imusic-control-play {
   width: 120px;
 }
 
-/* Control icons */
 ul.imusic-controls li span {
-  font-size: 16px;
   line-height: 30px;
-  text-align: center;
   float: left;
-  text-shadow:  1px 1px 1px rgba(255,255,255,0.9);
-  font-style: normal;
-  font-weight: normal;
-  text-transform: none;
-  speak: none;
-  display: inline-block;
   text-decoration: inherit;
   width: 1em;
   margin-right: 0.2em;
@@ -272,46 +160,70 @@ ul.imusic-controls li:hover {
   0 4px 1px rgba(0,0,0,0.5);
 }
 
-/* Pressed (active) */
-ul.imusic-controls li.imusic-control-active {
-  height: 30px;
-  margin-top: 2px;
-  background-image: url(../images/metal_dark.jpg);
-  box-shadow:
-  inset 0 0 0 1px rgba(0,0,0, 0.18),
-  inset 0 0 1px 2px rgba(255,255,255,0.5),
-  inset 0 -6px 5px rgba(0,0,0,0.1),
-  0 6px 7px rgba(0,0,0,0.3),
-  0 2px 1px rgba(0,0,0,0.5);
+.music-list {
+  height: 520px;
+  overflow-y: auto;
+  text-align: left;
+  max-width: 450px;
 }
 
-/* Activated */
-ul.imusic-controls li.imusic-control-pressed,
-ul.imusic-controls li.imusic-control-active.imusic-control-pressed {
-  height: 30px;
-  background-image: url(../images/metal_dark.jpg);
-  margin-top: 4px;
-  box-shadow:
-  inset 0 0 0 1px rgba(0,0,0, 0.2),
-  inset 0 0 5px 1px rgba(255,255,255,0.5),
-  inset 0 -10px 15px rgba(0,0,0,0.2),
-  0 7px 5px rgba(255,255,255,0.5);
+.imusic-tape {
+  width: 586px;
+  height: 379px;
+  margin: 30px auto 0;
+  position: relative;
+}
+
+.imusic-tape-back {
+  height: 100%;
+  background: transparent url(../images/cs_back.png) no-repeat center center;
+}
+
+.imusic-tape-wheel {
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  top: 110px;
+  border-radius: 50%;
+}
+
+.imusic-tape-wheel-left {
+  left: 109px;
+  box-shadow: 0 0 0 70px #000;
+}
+
+.imusic-tape-wheel-right {
+  right: 113px;
+}
+
+.imusic-tape-wheel div {
+  height: 100%;
+  background: transparent url(../images/cs_wheel.png) no-repeat center center;
+}
+
+.imusic-tape-front {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: transparent url(../images/cs_front.png) no-repeat center center;
+  top: 0;
+}
+
+.imusic-tape-front span {
+  color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 83px;
+  left: 67px;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .imusic-volume-wrap {
+  display: inline-block;
   width: 100px;
   height: 100px;
-  position: absolute;
-  bottom: 0px;
-  left: 44%;
-  margin-left: -318px;
-  background: -moz-linear-gradient(top, rgba(170,170,170,0.35) 0%, rgba(255,255,255,0.44) 50%, rgba(255,255,255,0.53) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(170,170,170,0.35)), color-stop(50%,rgba(255,255,255,0.44)), color-stop(100%,rgba(255,255,255,0.53)));
-  background: -webkit-linear-gradient(top, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
-  background: -o-linear-gradient(top, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
-  background: -ms-linear-gradient(top, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
   background: linear-gradient(to bottom, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59aaaaaa', endColorstr='#87ffffff',GradientType=0 );
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 50%;
   padding: 8px;
@@ -321,9 +233,6 @@ ul.imusic-controls li.imusic-control-active.imusic-control-pressed {
   0 -1px 0 rgba(255,255,255,0.4),
   inset 0 2px 19px rgba(0,0,0,0.05),
   0 2px 1px rgba(0,0,0,0.06);
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
 }
 
 .imusic-volume-wrap:after {
@@ -332,14 +241,22 @@ ul.imusic-controls li.imusic-control-active.imusic-control-pressed {
   display: block;
 }
 
-/* Text style for controls */
-ul.imusic-controls li,
+.imusic-controls li,
 .imusic-volume-wrap:after {
-  font-family: 'Aldrich';
-  font-size: 10px;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #666;
   text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.imusic-controls .imusic-control-pressed {
+  height: 30px;
+  background-image: url(../images/metal_dark.jpg);
+  margin-top: 4px;
+  box-shadow:
+  inset 0 0 0 1px rgba(0,0,0, 0.2),
+  inset 0 0 5px 1px rgba(255,255,255,0.5),
+  inset 0 -10px 15px rgba(0,0,0,0.2),
+  0 7px 5px rgba(255,255,255,0.5);
 }

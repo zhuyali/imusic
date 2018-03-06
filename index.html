@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="container">
-      <div id="imusic-container" class="imusic-container">
+      <div class="imusic-container">
         <div class="imusic-tape-wrapper">
           <div class="imusic-tape">
             <div class="imusic-tape-back">
@@ -27,44 +27,46 @@
             </div>
           </div>
         </div>
-        <ul class="imusic-controls" style="">
-          <li id="play" class="imusic-control-play control">
-            Play<span>▶</span>
-          </li>
-          <li id="pause" class="imusic-control-pause control">
-            Pause<span>❚❚</span>
-          </li>
-          <li id="pre" class="imusic-control-rewind control">
-            Pre<span>◁</span>
-          </li>
-          <li id="next" class="imusic-control-fforward control">
-            Next<span>▷</span>
-          </li>
-          <li id="stop" class="imusic-control-stop control">
-            Stop<span>◼</span>
-          </li>
-        </ul>
 
-        <div style="" class="imusic-volume-wrap">
-          <div class="imusic-volume-control">
-            <div class="imusic-volume-knob">
-            </div>
-          </div>
+        <div class="control-panel">
+          <div class="imusic-volume-wrap">
+            <div class="imusic-volume-control">
+              <div class="imusic-volume-knob">
+              </div>
+             </div>
+           </div>
+
+          <ul class="imusic-controls">
+            <li id="play" class="imusic-control-play control">
+              Play<span>▶</span>
+            </li>
+            <li id="pause" class="imusic-control-pause control">
+              Pause<span>❚❚</span>
+            </li>
+            <li id="pre" class="imusic-control-rewind control">
+              Pre<span>◁</span>
+            </li>
+            <li id="next" class="imusic-control-fforward control">
+              Next<span>▷</span>
+            </li>
+            <li id="stop" class="imusic-control-stop control">
+              Stop<span>◼</span>
+            </li>
+          </ul>
         </div>
       </div><!-- //imusic-container -->
+
+      <div class="list"></div>
     </div><!-- //container -->
     <div class="ribbon" style="position:fixed;right:0;top:0;width:150px;height:150px;overflow:hidden;z-index:9999;"><a target="_blank" style="display:inline-block;width:200px;overflow:hidden;padding:6px 0;text-align:center;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);-o-transform:rotate(45deg);-transform:rotate(45deg);text-decoration:none;color:#fff;position:inherit;top:45px;right:-40px;border-width:1px 0;border-style:dotted;border-color:rgba(255, 255, 255, 0.7);font:700 13px &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;box-shadow:0 2px 3px 0 rgba(0, 0, 0, 0.5);background-color:#a00;" href="//github.com/zhuyali/imusic">Fork me on Github</a></div>
-    <div id="container"></div>
     <audio id="audio"><span>HTML5 audio not supported</span></audio>
     <audio id="soundAudio" src='./assets/sounds/click.mp3'><span>HTML5 audio not supported</span></audio>
     <script id="grace-template" type="template">
-    <div class="list" style="overflow: auto;">
-      <ol>
-        <#each value in $data#>
-          <li class="item" data-path="<#=$value.path#>"><#=$value.name#></li>
-          <#/each#>
-      </ol>
-    </div>
+    <ol class="music-list">
+      <#each value in $data#>
+        <li class="item" data-path="<#=$value.path#>"><#=$value.name#></li>
+        <#/each#>
+    </ol>
     </script>
     <script src="./assets/javascript/index.js"></script>
   </body>

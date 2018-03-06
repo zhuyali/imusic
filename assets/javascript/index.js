@@ -83,7 +83,7 @@
   var render = function(data) {
     var template = $('#grace-template').html().trim();
     var html = grace.compile(template)({data : data});
-    $('#container').html(html);
+    $('.list').html(html);
   };
 
   $('.item').live('click', function() {
